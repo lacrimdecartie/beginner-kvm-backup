@@ -12,46 +12,46 @@ Voraussetzungen und Abgrenzungen:
 ----------------------------------------------------------------------------------
 
 Für manuelle Backups kann die Datei backup.sh verwendet werden.
-sudo sh backup.ch
+- sudo sh backup.ch
 ----------------------------------------------------------------------------------
 
 Für den Restore kann die Datei restore.sh verwendet werden.
-sudo sh restore.sh
+- sudo sh restore.sh
 ----------------------------------------------------------------------------------
 
 Um Backups mit einer Zeile zu starten kann die Datei autobackup.sh verwendet werden. Hier müssen die drei Parameter (VM-Name, Backupverzeichnis, VM-Dateiverzeichnis) mit angegeben werden.
-sudo sh autobackup.sh test /media/usb/Backup /lib/libvirt/images
+- sudo sh autobackup.sh test /media/usb/Backup /lib/libvirt/images
 ----------------------------------------------------------------------------------
 
 Um Backups zu automatisieren kann die Datei autobackup.sh in Verbindung mit einem Cronjob erfolgen. Um dies als Beginner zu erreichen  müssen nachfolgende Schritte durchgeführt werden:
 
 1. Damit das Skript automatisiert durchgeführt werden kann, muss es mit erhöhten rechten (sudo) verarbeitet werden.
 
-sudo su
+- sudo su
 
 2. um die Bearbeitung des Crontab zu erleichtern wollen wir NANO als Editor einsetzten. Hier für müssen wir als ersten die Datei .bash_profile erweitern
 
-nano ~/.bash_profile
+- nano ~/.bash_profile
 
 3. Am Ende der Datei bitte folgendes eintragen
 
-export VISUAL="nano"
+- export VISUAL="nano"
 
 4. Datei speichern und schliessen
 
-Tastenkombination "Ctrl+X" verwenden
+- Tastenkombination "Ctrl+X" verwenden
 
 5. Als nächstes muss das Profil aktualisiert werden
 
-. ~/.bash_profile
+- . ~/.bash_profile
 
 6. Nun können wir den entsprechenden Croneintarg setzten und öffnen hierzu den Cronetab
 
-crontab -e
+- crontab -e
 
 7. Die Syntax wie ein Croneintrag erstellt wird bzw. welche Möglichkeiten es gibt, kann man im Internet gut nachlesen. Für unseren Zweck erkläre ich lediglich den nachfolgenden Eintrag
 
-45 00 * * * sh /home/meinbenutzer/scripts/autobackup.sh test /media/usb/Backup /lib/libvirt/images
+- 45 00 * * * sh /home/meinbenutzer/scripts/autobackup.sh test /media/usb/Backup /lib/libvirt/images
 
 Erklärung:
 - 45 00 steht für die Uhrzeit und somit für 00:45Uhr
@@ -64,11 +64,11 @@ Erklärung:
 
 8. Datei speichern und schliessen
 
-Tastenkombination "Ctrl+X" verwenden
+- Tastenkombination "Ctrl+X" verwenden
 
 9. Prüfen ob Backup erstellt wurde
 
-Wenn alles gut gelaufen ist solltet Ihr im Backupverzeichnis zwei Dateien beseitzten. Zum einen die test.qcow2 und zum anderen die test.xml.
+- Wenn alles gut gelaufen ist solltet Ihr im Backupverzeichnis zwei Dateien beseitzten. Zum einen die test.qcow2 und zum anderen die test.xml.
 
 10. fertig
 
