@@ -1,6 +1,6 @@
 #!/bin/bash
 #---------------------------------------------------------------------
-#List all running KVM VMs
+#Set Parameter
 
 vmname=$1
 bkdestination=$2
